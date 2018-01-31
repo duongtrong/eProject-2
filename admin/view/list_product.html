@@ -1,0 +1,49 @@
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Admin list</h3>
+            </div>
+            <!-- /.box-header -->          
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <div class="col-md-9 col-sm-9 women-dresses">     
+                  <div class="col-md-4 women-grids wp1 animated wow slideInUp" ng-repeat="book in books | orderBy: order | filter: search | limitTo: pageSize : (currentPage-1)*pageSize" data-wow-delay=".5s">
+                    <a href="#/books/details/{{book._id}}"><div class="product-img">
+                      <img ng-src="{{book.image_url}}" alt="" class="img-responsive"/>
+                      <div class="p-mask">              
+                      <button type="submit" class="w3ls-cart pw3ls-cart"><span class="glyphicon glyphicon-info-sign" aria-hidden="true" style="margin-right: 30px;"></span>Xem chi tiết</button>
+                      </div>
+                    </div></a>
+                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                    <button type="submit" class="w3ls-cart cart-my-home" ng-click="cartclick(book._id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                    <br>
+                    <div style="font-size: 20px;">{{book.title}}</div>
+                    <div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+                <tbody id="result">                              
+                </tbody>                
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">                
+                <div class="col-md-6 col-md-offset-6">
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination">                        
+                      </ul>
+                    </nav>
+                </div>
+            </div>
+          </div>
+          <!-- /.box -->        
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
