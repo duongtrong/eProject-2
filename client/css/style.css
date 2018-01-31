@@ -66,15 +66,15 @@ img {
     position:relative;
 }
 .logo-w3 img,.footer img {
-    width: 7%;
+    width: 50%;
     position: absolute;
     top: 0;
-    left: -28px;
+    left: 28px;
 }
 .footer img {
-    width:13%;
-    top: 2px;
-    left: -22px;
+    width:20%;
+    top: -16px;
+    left: 28px;
 }
 .logo-w3 a h1 span ,.footer a h3 span {
     color: #999;
@@ -1973,8 +1973,8 @@ p.w3-agile{
     .logo-w3 img{
         width: 8%;
         position: absolute;
-        top: 0;
-        left: -23px;
+        top: 10px;
+        left: 25px;
     }
     .dropdown-menu.multi {
         min-width: 580px;
@@ -2030,7 +2030,7 @@ p.w3-agile{
 }
 @media screen and (max-width: 991px){
     .logo-w3 img {
-        width: 10%;
+        width: 50%;
     }
     .navigation-agileits {
         width: 65%;
@@ -2153,9 +2153,9 @@ p.w3-agile{
         left: 128px;
     }
     .footer img {
-        width: 20%;
-        top: 2px;
-        left: -22px;
+        width: 35%;
+        top: -12px;
+        left: 21px;
     }
     .fgd1 .fa {
         font-size: 13px;
