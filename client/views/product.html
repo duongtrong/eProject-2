@@ -1,0 +1,140 @@
+<div class="content" ng-init="getBooks()">
+	<div class="container">
+		<div class="col-md-3 w3ls_dresses_grid_left">
+			<div class="w3ls_dresses_grid_left_grid">
+				<div class="nullll">Sắp xếp theo:</div>
+				<br>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_dres-type">
+						<ul>
+							<li><button ng-click="order = 'price'">Giá giảm dần</button></li>
+							<li><button ng-click="order = '-price'">Giá tăng dần</button></li>
+							<li><input type="text" ng-model="search" ng-change="order = 'title'" placeholder="Tìm kiếm sản phẩm"></li>
+							<li><input type="text"  placeholder="Giá thấp từ"></li>	
+							<li><input type="text" placeholder="Giá cao đến"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls_dresses_grid_left_grid">
+				<br>
+				<div class="nullll">Categories</div>
+				<br>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_dres-type">
+						<ul>
+							<li><button ng-click="order = 'genre';search = 'quathop'">Quạt hộp</button></li>
+							<li><button ng-click="order = 'genre';search = 'quatban'">Quạt bàn</button></li>
+							<li><button ng-click="order = 'genre';search = 'quatsacdien'">Quạt sạc điện</button></li>
+							<li><button ng-click="order = 'genre';search = 'quattreotuong'">Quạt treo tường</button></li>
+							<li><button ng-click="order = 'genre';search = 'phunsuong'">Phun sương</button></li>
+							<li><button ng-click="order = 'genre';search = 'quatlung'">Quạt lửng</button></li>
+							<li><button ng-click="order = 'genre';search = 'quatdung'">Quạt đứng</button></li>
+							<li><button ng-click="order = 'genre';search = 'dieuhoa'">Quạt điều hòa</button></li>
+							<li><button ng-click="order = 'genre';search = 'thonggio'">Quạt thông gió</button></li>
+							<li><button ng-click="order = 'genre';search = 'loaikhac'">Các loại khác</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls_dresses_grid_left_grid">
+				<br>
+				<div class="nullll">Hãng sản xuất</div>
+				<br>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_dres-type">
+						<ul>
+							<li><button ng-click="order = 'author';search = 'sunhouse'">Sunhouse</button></li>
+							<li><button ng-click="order = 'author';search = 'Asia'">Asia</button></li>
+							<li><button ng-click="order = 'author';search = 'Midea'">Midea</button></li>
+							<li><button ng-click="order = 'author';search = 'Mitsubishi'">Mitsubishi</button></li>
+							<li><button ng-click="order = 'author';search = 'Tefal'">Tefal</button></li>
+							<li><button ng-click="order = 'author';search = 'Panasonic'">Panasonic</button></li>
+							<li><button ng-click="order = 'author';search = 'Electrolux'">Electrolux</button></li>
+							<li><button ng-click="order = 'author';search = 'KDK'">KDK</button></li>
+							<li><button ng-click="order = 'author';search = 'Senko'">Senko</button></li>
+							<li><button ng-click="order = 'author';search = 'Other'">Other</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="w3ls_dresses_grid_left_grid_sub">
+				<div class="dresses_img_hover">
+					<img src="images/offer6.jpg" alt=" " class="img-responsive" />
+					<div class="dresses_img_hover_pos">
+						<h4>Upto<span>40%</span><i>Off</i></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 col-sm-9 women-dresses">			
+				<div class="col-md-4 women-grids wp1 animated wow slideInUp" ng-repeat="book in books | orderBy: order | filter: search | limitTo: pageSize : (currentPage-1)*pageSize" data-wow-delay=".5s">
+					<a href="#/books/details/{{book._id}}"><div class="product-img">
+						<img ng-src="{{book.image_url}}" alt="" class="img-responsive"/>
+						<div class="p-mask">							
+						<button type="submit" class="w3ls-cart pw3ls-cart"><span class="glyphicon glyphicon-info-sign" aria-hidden="true" style="margin-right: 30px;"></span>Xem chi tiết</button>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star gray-star" aria-hidden="true"></i>
+					<button type="submit" class="w3ls-cart cart-my-home" ng-click="cartclick(book._id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+					<br>
+					<div style="font-size: 20px;">{{book.title}}</div>
+					<div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+				</div>
+				<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-md-offset-8">
+    <ul uib-pagination total-items="books.length" ng-model="currentPage" items-per-page="pageSize" max-size="5" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+		
+	</div>
+
+</div>
+
+<div id="PPsbmincart" ng-controller="CartController">
+
+    <form ng-init = "loadCart()">    
+      <button type="button" class="sbmincart-closer">×</button>    
+        <ul>                
+          <li class="sbmincart-item sbmincart-item-changed" ng-repeat="info in backCart">            
+            <div class="sbmincart-details-name">                
+              <a class="sbmincart-name" href="#/books/details/{{info.databack._id}}">{{info.databack.title}}</a>                
+              <ul class="sbmincart-attributes">                                                                            
+              </ul>            
+            </div>            
+            <div class="sbmincart-details-quantity">                
+              <input class="sbmincart-quantity" data-sbmincart-idx="0" name="quantity_1" type="text" pattern="[0-9]*" ng-model='info.quanlity' autocomplete="off">            
+            </div>            
+            <div class="sbmincart-details-remove">                
+              <button type="button" class="sbmincart-remove" data-sbmincart-idx="0" ng-click="deleteCart($index)">×</button>            
+            </div>            
+            <div class="sbmincart-details-price">                
+              <span class="sbmincart-price">{{info.databack.price*info.quanlity}} VNĐ</span>            
+            </div>                 
+          </li>            
+        </ul>    
+        <div class="sbmincart-footer">                    
+          <div class="sbmincart-subtotal">                
+          Subtotal: $50.00 USD            
+        </div>                      
+      </div>    
+      <input type="hidden" name="cmd" value="_cart">    
+      <input type="hidden" name="upload" value="1">            
+      <input type="hidden" name="bn" value="sbmincart_AddToCart_WPS_US">   
+    </form>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".sbmincart-closer").click(function(){
+        $("#PPsbmincart").hide();
+    });
+});
+</script>
+
