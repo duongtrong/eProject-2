@@ -1,0 +1,143 @@
+<script>
+  // Can also be used with $(document).ready()
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+    });
+  });
+</script>
+
+  <div class="products" ng-init="getBook()">   
+    <div class="container">  
+      <div class="single-page">        
+        <div class="col-md-6 single-top-left">
+          <div class="flexslider">
+            <ul class="slides">
+              <li data-thumb="{{book.image_url1}}">
+                <div class="thumb-image detail_images"> <img src="{{book.image_url1}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+              </li>
+            </ul>
+          </div>              
+        </div>
+        <div class="col-md-6 single-top-right">
+          <h3> {{book.title}}</h3>
+          <p>Sản phẩm sẽ được giao tận tay cho quý khách trong vòng 1-3 ngày </p>
+          <div class="single-rating">
+            <ul>
+              <div ng-controller="RatingDemoCtrl">
+              <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+              <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+              <span style="margin:30px 0">Rate: <b>{{rate}}</b></span>
+              <button type="button" class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Add your review</button>
+            </ul> 
+          </div>
+          <div class="single-price">
+            <ul>
+              <li>{{book.price}} VNĐ</li>  
+              <!-- <li><del>{{book.price*book.discount}}</del></li>  -->
+              <li><span class="w3off">Giảm: {{book.discount}}%</span></li> 
+              <li>Kết Thúc: 4-2-2018</li>
+              <li><a href="#"> Phần Quà <i class="fa fa-gift" aria-hidden="true"></i></a></li>
+            </ul> 
+          </div> 
+          <p class="single-price-text">{{book.description}} </p>
+          <form>
+            <input type="hidden" name="cmd" value="_cart" />
+            <input type="hidden" name="add" value="1" /> 
+            <input type="hidden" name="w3ls1_item" value="Handbag" /> 
+            <input type="hidden" name="amount" value="540.00" /> 
+            <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
+          </form>
+          <button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> Yêu Thích</button>
+        </div>
+         <div class="clearfix"> </div>  
+      </div>
+    </div> 
+
+    <!-- collapse-tabs -->
+
+    <div class="container">
+      <div class="col-md-6">
+        <div class="collpse tabs">
+          <div ng-controller="AccordionDemoCtrl">
+            <script type="text/ng-template" id="group-template.html">
+              <div class="panel-heading">
+                <h4 class="panel-title" style="color:#fa39c3">
+                  <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                    <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                      {{heading}}
+                    </span>
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                <div class="panel-body" style="text-align: right" ng-transclude></div>
+              </div>
+            </script>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="oneAtATime">
+                Open only one at a time
+              </label>
+            </div>
+            <uib-accordion close-others="oneAtATime">
+              <div uib-accordion-group class="panel-default" heading="Description" is-open="status.isFirstOpen">
+                {{book.description1}}
+              </div>
+              <div uib-accordion-group class="panel-default" heading="Add information">
+                {{book.description}}
+              </div>
+              <div uib-accordion-group class="panel-default" heading="Reviews">
+                {{book.author}}
+              </div>
+              <div uib-accordion-group class="panel-default" heading="Help">
+                {{book.description2}}
+              </div>
+            </uib-accordion>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-6">
+        <div class="Specifications">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Thông số kĩ thuật</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <td>Kích thước: {{book.shape}}</td>
+                </tr>
+                <tr>
+                  <td>Trọng lượng: {{book.height}}</td>
+                </tr>
+                <tr>
+                  <td>Công suất: {{book.capacity}}</td>
+                </tr>
+                <tr>
+                  <td>Cánh quạt: {{book.propeller}}</td>
+                </tr>
+                <tr>
+                  <td>Tốc độ gió: {{book.winspeed}}</td>
+                </tr>
+                <tr>
+                  <td>Bảng điều khiển: {{book.controller}}</td>
+                </tr>
+                <tr>
+                  <td>Xuất xứ: {{book.publisher}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+    <!-- //collapse -->
+    </div>    
+</div>
+<div class="pull-right">
+  <a href="#/books/edit/{{book._id}}">Edit</a>  |  <a href="#" ng-click="removeBook(book._id)">Delete</a>
+</div>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/imagezoom.js"></script>

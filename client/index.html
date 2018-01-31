@@ -1,0 +1,182 @@
+<html ng-app="myApp">
+<head>
+	<title>FanoFan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/mini-solid-icons-vol-15/16/750-512.png" />
+  <!--  style -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" media="all">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+  <!--   js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="js/jquery.wmuSlider.js"></script> 
+  <script src="js/jquery.flexslider.js"></script>
+  <script src="js/jquery.flexisel.js"></script>
+  <script src="js/imagezoom.js"></script> 
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a7017e2bd9b83e2"></script>
+  </script>
+</head>
+<body>
+  <!--header -->
+  <div class="header-top-w3layouts">
+    <div class="container">
+      <div class="col-md-6 logo-w3">
+        <a href="#/"><img src="images/logo2.png" alt=" "/><h1>FANoFAN<span>Company</span></h1></a>
+      </div>
+      <div class="col-md-6 phone-w3l">
+        <ul>
+          <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
+          <li><a href="#/books/add">Add </a></li>
+          <li><a href="#/brands/add">Author </a></li>
+          <li><a href="#/carts">Cart </a></li>        
+        </ul>
+        <ul ng-controller="authenticationController">
+          <li ng-show="!isLoggedIn"><a href="#/registers"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+          <li ng-show="!isLoggedIn"><a href="#/logins" class="kkku"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+          <li ng-show="isLoggedIn"><a href="#/carts">Welcome {{loggedInUsername}}</a></li>
+          <li ng-show="isLoggedIn"><a href="#" ng-click="handleLogout()">Đăng xuất</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="header-bottom-w3ls">
+    <div class="container">
+      <div class="col-md-7 navigation-agileits">
+        <nav class="navbar navbar-default">
+          <div class="navbar-header nav_2">
+            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div> 
+          <div class="collapse navbar-collapse" ng-controller="navController">
+            <ul class="nav navbar-nav">
+              <li ng-class="{active: isActive('/')}"><a href="#/" class="hyper"><span>Trang chủ</span></a></li>  
+              <li ng-class="{active: isActive('/products')}">
+                <a href="#/products" class="hyper"><span>Sản Phẩm</span></a>                
+              </li>
+              <li ng-class="{active: isActive('/brands')}">
+                  <a href="#/brands" ><span> Hãng sản xuất </span></a>
+              </li>
+              <li ng-class="{active: isActive('/abouts')}"><a href="#/abouts" class="hyper"><span>Về chúng tôi</span></a></li>
+              <li ng-class="{active: isActive('/contacts')}"><a href="#/contacts" class="hyper"><span>Liên hệ</span></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="col-md-4 search-agileinfo">
+        <form action="#" method="post">
+          <input type="search" name="Search" placeholder="Search for a Product..." required="">
+          <button type="submit" class="btn btn-default search" aria-label="Left Align">
+            <i class="fa fa-search" aria-hidden="true"> </i>
+          </button>
+        </form>
+      </div>
+      <div class="col-md-1 cart-wthree" ng-controller="CartController">
+        <div class="cart"> 
+          <form class="last"> 
+            <input type="hidden" name="cmd" value="_cart" />
+            <input type="hidden" name="display" value="1" />
+            <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+          </form>  
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <!-- ng-view -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      	<div ng-view></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- newsletter -->
+   <div class="newsletter" ng-controller="newsletterController">
+     <div class="container">
+       <div class="col-md-6 w3agile_newsletter_left">
+         <h3>Đăng ký nhận thông tin.</h3>
+         <p>Bạn cần thông tin, hãy gửi mail cho chúng tôi nhé!.</p>
+       </div>
+       <div class="col-md-6 w3agile_newsletter_right">
+         <form ng-submit="contactIndex()">
+           <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value ='Email';}" required="">
+           <input type="submit" value="Subscribe"/>
+         </form>
+       </div>
+       <div class="clearfix"> </div>
+     </div>
+   </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="col-md-4 footer-grids fgd1">
+      <a href="index.html"><img src="images/logo2.png" alt=" " /><h3>FANOFAN<span>COMPANY</span></h3></a>
+      <ul>
+        <li>Số 8 Tôn Thất Thuyết, Nam Từ Liêm</li>
+        <li>Ha Noi City.</li>
+        <li><a href="mailto:info@example.com">fanofan@gmail.com</a></li>
+        <a href="https://twitter.com/FanOFan5?edit=true"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="#/"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/FAN-o-FAN-149130269223787/?modal=admin_todo_tour"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </ul>
+      </div>
+      <div class="col-md-4 footer-grids fgd2">
+        <h4>Thông tin</h4> 
+        <ul>
+          <li><a href="#/contacts">Liên hệ </a></li>
+          <li><a href="#/abouts">Về chúng tôi</a></li>
+          <li><a href="#/">Chính sách bán hàng</a></li>
+          <li><a href="#/faqs">FAQ's</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 footer-grids fgd4">
+        <h4>Tài khoản của bạn</h4> 
+        <ul>
+          
+          <li><a href="#/logins">Đăng nhập</a></li>
+          <li><a href="#/registers">Đăng ký</a></li>
+          <li><a href="#/">Bảo hành</a></li>
+          <li><a href="#/">Thanh toán</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+      <p class="copy-right">© 2017 FanoFan Company . All rights reserved | Design by <a href="http://kenh14.vn"> lehoang.</a></p>
+    </div>
+  </div>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="/app.js"></script>
+	<script src="/controllers/books.js"></script>
+  <script src="/controllers/authors.js"></script>
+  <script src="/controllers/navControllers.js"></script>  
+  <script src="/controllers/loginRegisterController.js"></script>
+  <script src="/controllers/cartController.js"></script>
+  <script src="/directives/comparePassword.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".w3view-cart").click(function(){
+          $("#PPsbmincart").show();
+      });
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+  <!-- banner2.jpg -->
+
+<div class="banner-agile">
+  <div class="container">
+    <h2>WELCOME TO</h2>
+    <h3>FANOFAN <span>COMPANY</span></h3>
+    <p>Chúng tôi là công ty chuyên cung cấp sản phẩm chính hãng các loại quạt, với uy tín và giá cả hợp lý nhất! </p>
+    <a href="#/abouts">Chi tiết</a>
+  </div>
+</div>
+  
+  <!-- sale up to 50% -->
+
+<div class="banner-bootom-w3-agileits">
+  <div class="container">
+    <div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
+      <a href="#/products"><div class="bb-left-agileits-w3layouts-inner">
+          <h3>SALE</h3>
+          <h4>upto<span>25%</span></h4>
+      </div></a>
+    </div>
+    <div class="col-md-4 bb-grids bb-middle-agileits-w3layouts">
+      <a href="#/products"><div class="bb-middle-top">
+        <h3>SALE</h3>
+        <h4>upto<span>15%</span></h4>
+      </div></a>
+      <a href="#/products"><div class="bb-middle-bottom">
+        <h3>SALE</h3>
+        <h4>upto<span>20%</span></h4>
+      </div></a>
+    </div>
+    <div class="col-md-3 bb-grids bb-right-agileits-w3layouts">
+      <a href="#/products"><div class="bb-right-top">
+        <h3>SALE</h3>
+        <h4>upto<span>10%</span></h4>
+      </div></a>
+      <a href="#/products"><div class="bb-right-bottom">
+        <h3>SALE</h3>
+        <h4>upto<span>30%</span></h4>
+      </div></a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+  
+<div class="top-products" ng-init="getBooks()">
+  <div class="container" >
+    <h3>Sản phẩm bán chạy</h3>
+    <br>
+    <div >      
+        <ul class="resp-tabs-list">
+          <li class="resp-tab-item"><button ng-click="order = 'genre';searchlayout = 'quatdung'">Quạt đứng</button></li>
+          <li class="resp-tab-item"><button ng-click="order = 'genre';searchlayout = 'quathop'">Quạt hộp</button></li>
+          <li class="resp-tab-item"><button ng-click="order = 'genre';searchlayout = 'quattreotuong'">Quạt treo tường</button></li>  
+          <li class="resp-tab-item"><button ng-click="order = 'genre';searchlayout = 'quatban'">Quạt bàn</button></li>           
+        </ul> 
+      <div class="clearfix"> </div>     
+    </div>
+    <div ng-repeat="book in books | limitTo: 12 | filter : searchlayout">
+      <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s" >  
+      <a href="#/books/details/{{book._id}}"><div class="product-img">
+        <img ng-src="{{book.image_url}}" alt="" class="img-responsive"/>
+        <div class="p-mask">          
+          <button type="submit" class="w3ls-cart pw3ls-cart"><span class="glyphicon glyphicon-info-sign" aria-hidden="true" style="margin-right: 30px;"></span> Xem chi tiết</button>
+        </div>
+        </div></a>
+        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+        <i class="fa fa-star gray-star" aria-hidden="true"></i>
+        <i class="fa fa-star gray-star" aria-hidden="true"></i>
+        <button type="submit" class="w3ls-cart cart-my-home" ng-click="cartclick(book._id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
+        <div style="font-size: 20px;">{{book.title}}</div>
+        <div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- fandt -->
+<div class="fandt">
+  <div class="container">
+    <div class="col-md-6 features">
+      <h3>Cam kết dịch vụ</h3>
+      <div class="support">
+        <div class="col-md-2 ficon hvr-rectangle-out">
+          <i class="fa fa-user " aria-hidden="true"></i>
+        </div>
+        <div class="col-md-10 ftext">
+          <h4>Hỗ trợ miễn phí online 24/7</h4>
+          <p>Tổng đài hỗ trợ miễn phí, phục vụ mọi nhu cầu khách hàng, cung cấp dịch vụ an toàn đảm bảo uy tín.</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="shipping">
+        <div class="col-md-2 ficon hvr-rectangle-out">
+          <i class="fa fa-bus" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-10 ftext">
+          <h4>Miễn phí giao hàng</h4>
+          <p>Giao hàng tận nơi miễn phí trong 2 tiếng (Nếu đặt sau 19 giờ hoặc xa hơn 50km sẽ giao hàng vào ngày hôm sau).</p>
+        </div>  
+        <div class="clearfix"></div>
+      </div>
+      <div class="money-back">
+        <div class="col-md-2 ficon hvr-rectangle-out">
+          <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-10 ftext">
+          <h4>Hoàn tiền 100%</h4>
+          <p>Hoàn trả 100% nếu hàng không đúng, sản phẩm hỏng hoặc không đúng nhu cầu khách hàng. Cam kết sản phẩm bảo hành chính hãng ít nhất 1 năm.</p>
+        </div>  
+        <div class="clearfix"></div>        
+      </div>
+    </div>
+    <div class="col-md-6 testimonials">
+      <div class="test-inner">
+        <div class="wmuSlider example1 animated wow slideInUp" data-wow-delay=".5s">
+          <div class="wmuSliderWrapper">
+            <article style="position: absolute; width: 100%; opacity: 0;"> 
+              <div class="banner-wrap">
+                <img src="images/c1.png" alt=" " class="img-responsive" />
+                <p>Chúng tôi luôn cam kết đặt mục tiêu sự hài lòng của khách hàng lên trên hết, sự cầu kì về dịch vụ trên mỗi sản phẩm qua các công đoạn luôn được kiểm soát chặt chẽ. Uy tín là thương hiệu !.</p>
+                <h4># Andrew</h4>
+              </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;"> 
+              <div class="banner-wrap">
+                <img src="images/c2.png" alt=" " class="img-responsive" />
+                <p>Một sản phẩm tốt cộng với một dịch vụ tốt là yếu tố bắt buộc. Điều đấy tạo nên sự khác biệt và lòng tin với người tiêu dùng. Đó là mục tiêu của chúng tôi !.</p>
+                <h4># Lucy</h4>
+              </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+              <div class="banner-wrap">
+                <img src="images/c3.png" alt=" " class="img-responsive" />
+                <p>Truyền tải thông điệp tới khách hàng qua dịch vụ tốt nhất. Chúng tôi mong rằng sự hài lòng của mỗi người khi đã tin tưởng vào sản phẩm của chúng tôi. </p>
+                <h4># Martina</h4>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+    <script> $('.example1').wmuSlider(); </script>                 
+</div>
+
+<!-- top brand -->
+<div class="top-brands">
+    <div class="container">
+      <h3>Thương hiệu hàng đầu</h3>
+      <div class="sliderfig">
+        <ul id="flexiselDemo1">     
+          <li>
+            <img src="images/4.png" alt=" " class="img-responsive" />
+          </li>
+          <li>
+            <img src="images/5.png" alt=" " class="img-responsive" />
+          </li>
+          <li>
+            <img src="images/6.png" alt=" " class="img-responsive" />
+          </li>
+          <li>
+            <img src="images/7.png" alt=" " class="img-responsive" />
+          </li>
+          <li>
+            <img src="images/46.jpg" alt=" " class="img-responsive" />
+          </li>
+        </ul>
+      </div>
+          <script type="text/javascript">
+              $(document).ready(function() {
+                $("#flexiselDemo1").flexisel({
+                  visibleItems: 4,
+                  animationSpeed: 1000,
+                  autoPlay: false,
+                  autoPlaySpeed: 3000,        
+                  pauseOnHover: true,
+                  enableResponsiveBreakpoints: true,
+                  responsiveBreakpoints: { 
+                    portrait: { 
+                      changePoint:480,
+                      visibleItems: 1
+                    }, 
+                    landscape: { 
+                      changePoint:640,
+                      visibleItems:2
+                    },
+                    tablet: { 
+                      changePoint:768,
+                      visibleItems: 3
+                    }
+                  }
+                });
+                
+              });
+          </script>
+          <script type="text/javascript" src="../js/jquery.flexisel.js"></script>
+    </div>
+</div>
+
+<!-- cart -->
+<div id="PPsbmincart" ng-controller="CartController">
+
+    <form ng-init = "loadCart()">    
+      <button type="button" class="sbmincart-closer">×</button>    
+        <ul>                
+          <li class="sbmincart-item sbmincart-item-changed" ng-repeat="info in backCart">            
+            <div class="sbmincart-details-name">                
+              <a class="sbmincart-name" href="#/books/details/{{info.databack._id}}">{{info.databack.title}}</a>                
+              <ul class="sbmincart-attributes">                                                                            
+              </ul>            
+            </div>            
+            <div class="sbmincart-details-quantity">                
+              <input class="sbmincart-quantity" data-sbmincart-idx="0" name="quantity_1" type="text" pattern="[0-9]*" ng-model='info.quanlity' autocomplete="off">            
+            </div>            
+            <div class="sbmincart-details-remove">                
+              <button type="button" class="sbmincart-remove" data-sbmincart-idx="0" ng-click="deleteCart($index)">×</button>            
+            </div>            
+            <div class="sbmincart-details-price">                
+              <span class="sbmincart-price">{{info.databack.price*info.quanlity}} VNĐ</span>            
+            </div>                 
+          </li>            
+        </ul>    
+        <div class="sbmincart-footer">                    
+          <div class="sbmincart-subtotal">                
+          Subtotal: 50.000 VNĐ            
+        </div>                      
+      </div>    
+      <input type="hidden" name="cmd" value="_cart">    
+      <input type="hidden" name="upload" value="1">            
+      <input type="hidden" name="bn" value="sbmincart_AddToCart_WPS_US">   
+    </form>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".sbmincart-closer").click(function(){
+        $("#PPsbmincart").hide();
+    });
+});
+</script>

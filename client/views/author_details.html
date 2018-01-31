@@ -1,0 +1,55 @@
+
+<div class="container" ng-init="getAuthor()">
+	<h1>{{author.title}}</h1>
+	<img ng-src="{{author.image_url2}}" alt="" style="max-height:300px;"/>
+        <p>{{author.description}}</p>
+	<div class="pull-right">
+	  <a href="#/brands/edit/{{author._id}}">Edit</a> |  <a href="#" ng-click="removeAuthor(author._id)">Delete</a>
+	</div>
+</div>
+
+<div class="content" ng-init="getBooks(); order = 'author';search = 'sunhouse'" ng-controller="BooksController">
+	<div class="container">
+		<div class="col-md-3 w3ls_dresses_grid_left">
+			<div class="w3ls_dresses_grid_left_grid">
+				<h3>Sắp xếp theo:</h3>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_dres-type">
+						<ul>
+							<li><button ng-click="order = 'price'">Giá giảm dần</button></li>
+							<li><button ng-click="order = '-price'">Giá tăng dần</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 col-sm-9 women-dresses">			
+			<div class="col-md-4 women-grids wp1 animated wow slideInUp" ng-repeat="book in books | orderBy: order | filter: search | limitTo: pageSize : (currentPage-1)*pageSize" data-wow-delay=".5s">
+				<a href="#/books/details/{{book._id}}"><div class="product-img">
+					<img ng-src="{{book.image_url}}" alt="" class="img-responsive"/>
+					<div class="p-mask">
+						<form action="#" method="post">
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" /> 
+							<input type="hidden" name="w3ls1_item" value="Neck set" /> 
+							<input type="hidden" name="amount" value="150.00" /> 
+							<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
+						</form>
+					</div>
+				</div></a>
+				<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+				<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+				<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+				<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+				<i class="fa fa-star gray-star" aria-hidden="true"></i>
+				<div style="font-size: 20px;">{{book.title}}</div>
+				<div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="col-md-4 col-md-offset-8">
+    	<ul uib-pagination total-items="books.length" ng-model="currentPage" items-per-page="pageSize" max-size="5" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+	</div>
+</div>
+
