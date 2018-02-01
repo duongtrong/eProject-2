@@ -122,5 +122,13 @@ myApp.controller('BooksController', ['$scope', '$http', '$location', '$routePara
 	}
 }]);
 
+myApp.controller('payController', ['$scope', '$location', '$http', function($scope, $location, $rootScope, $http, $routeParams){
+	console.log('payController loaded...');
 
+  	$scope.isActive = function(destination){
+    return destination === $location.path();
+  	};
+
+ 	
+}]);
 
