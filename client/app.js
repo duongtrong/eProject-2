@@ -69,6 +69,10 @@ myApp.config(function($routeProvider){
 		controller: 'BooksController',
 		templateUrl: 'views/faq.html'
 	})
+	.when('/payment', {
+		controller:'BooksController',
+		templateUrl: 'views/payment.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
