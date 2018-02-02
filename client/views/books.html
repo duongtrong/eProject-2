@@ -71,7 +71,7 @@
         <i class="fa fa-star gray-star" aria-hidden="true"></i>
         <button type="submit" class="w3ls-cart cart-my-home" ng-click="cartclick(book._id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
         <div style="font-size: 20px;">{{book.title}}</div>
-        <div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+        <div style="font-size: 25px;"> {{book.price | number}} VNĐ</div>
       </div>
     </div>
   </div>

@@ -9,9 +9,9 @@
 						<ul>
 							<li><button ng-click="order = 'price'">Giá giảm dần</button></li>
 							<li><button ng-click="order = '-price'">Giá tăng dần</button></li>
-							<li><input type="text" ng-model="search" ng-change="order = 'title'" placeholder="Tìm kiếm sản phẩm"></li>
-							<li><input type="text"  placeholder="Giá thấp từ"></li>	
-							<li><input type="text" placeholder="Giá cao đến"></li>
+							<li><input type="text" ng-model="search" ng-change="order = 'title'" placeholder="  Tìm kiếm sản phẩm" class="search"></li>
+							<li><input type="text"  placeholder="  Giá thấp từ" class="search"></li>	
+							<li><input type="text" placeholder="  Giá cao đến" class="search"></li>
 						</ul>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 					<button type="submit" class="w3ls-cart cart-my-home" ng-click="cartclick(book._id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
 					<br>
 					<div style="font-size: 20px;">{{book.title}}</div>
-					<div style="font-size: 25px;"> {{book.price}} VNĐ</div>
+					<div style="font-size: 25px;"> {{book.price | number}} VNĐ</div>
 				</div>
 				<div class="clearfix"></div>
 		</div>

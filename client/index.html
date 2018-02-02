@@ -24,7 +24,7 @@
   <div class="header-top-w3layouts">
     <div class="container">
       <div class="col-md-6 logo-w3">
-        <a href="#/"><img src="images/logo3.png" alt=" "/></a>
+        <a href="#/"><img src="images/logo2.png" alt=" "/></a>
       </div>
       <div class="col-md-6 phone-w3l">
         <ul>
@@ -58,15 +58,15 @@
           </div> 
           <div class="collapse navbar-collapse" ng-controller="navController">
             <ul class="nav navbar-nav">
-              <li ng-class="{active: isActive('/')}"><a href="#/" class="hyper"><span>Trang chủ</span></a></li>  
+              <li ng-class="{active: isActive('/')}"><a href="#/" class="hyper"><span class="font">TRANG CHỦ</span></a></li>  
               <li ng-class="{active: isActive('/products')}">
-                <a href="#/products" class="hyper"><span>Sản Phẩm</span></a>                
+                <a href="#/products" class="hyper"><span class="font">SẢN PHẨM</span></a>                
               </li>
               <li ng-class="{active: isActive('/brands')}">
-                  <a href="#/brands" ><span> Hãng sản xuất </span></a>
+                  <a href="#/brands" ><span class="font"> HÃNG SẢN SUẤT </span></a>
               </li>
-              <li ng-class="{active: isActive('/abouts')}"><a href="#/abouts" class="hyper"><span>Về chúng tôi</span></a></li>
-              <li ng-class="{active: isActive('/contacts')}"><a href="#/contacts" class="hyper"><span>Liên hệ</span></a></li>
+              <li ng-class="{active: isActive('/abouts')}"><a href="#/abouts" class="hyper"><span class="font">VỀ CHÚNG TÔI</span></a></li>
+              <li ng-class="{active: isActive('/contacts')}"><a href="#/contacts" class="hyper"><span class="font">LIÊN HỆ</span></a></li>
             </ul>
           </div>
         </nav>
@@ -96,7 +96,7 @@
   <!-- ng-view -->
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" style="margin-bottom: 10px;">
       	<div ng-view></div>
       </div>
     </div>
@@ -107,7 +107,8 @@
      <div class="container">
        <div class="col-md-6 w3agile_newsletter_left">
          <h3>Đăng ký nhận thông tin.</h3>
-         <p>Bạn cần thông tin, hãy gửi mail cho chúng tôi nhé!.</p>
+         <p class="
+         p">Bạn cần thông tin, hãy gửi mail cho chúng tôi nhé!.</p>
        </div>
        <div class="col-md-6 w3agile_newsletter_right">
          <form ng-submit="contactIndex()">
@@ -123,9 +124,9 @@
   <div class="footer">
     <div class="container">
       <div class="col-md-4 footer-grids fgd1">
-      <a href="index.html"><img src="images/logo3.png" alt=" " /></a>
+      <a href="index.html"><img src="images/logo2.png" alt=" " /></a>
       <ul>
-        <li>Số 8 Tôn Thất Thuyết, Nam Từ Liêm</li>
+        <li style="padding-top: 85px">Số 8 Tôn Thất Thuyết, Nam Từ Liêm</li>
         <li>Ha Noi City.</li>
         <li><a href="mailto:info@example.com">fanofan@gmail.com</a></li>
         <a href="https://twitter.com/FanOFan5?edit=true"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -154,7 +155,7 @@
         </ul>
       </div>
       <div class="clearfix"></div>
-      <p class="copy-right">© 2017 FanoFan Company . All rights reserved | Design by <a href="http://kenh14.vn"> lehoang.</a></p>
+      <p class="copy-right">© 2017 FanoFan Company . All rights reserved | Design by <a href="http://kenh14.vn"> FANoFAN.</a></p>
     </div>
   </div>
 	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -168,7 +169,7 @@
   <script src="/controllers/navControllers.js"></script>  
   <script src="/controllers/loginRegisterController.js"></script>
   <script src="/controllers/cartController.js"></script>
-  <script src="/directives/comparePassword.js"></script>
+  <!-- <script src="/directives/comparePassword.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
